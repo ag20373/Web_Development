@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Image Maps</title>
+</head>
+<body>
+    <!-- #region HTML Image Maps-->
+    <h1>HTML Image Maps</h1>
+    <p>The HTML (map) tag defines an image map is an image with clickable areas. The areas are defined with one or more (area) tags</p>
+    <h2>How Does It Work?</h2>
+    <p>
+        The idea behind an image map is that you should be able to perform different actions depending on where in the image you click.
+    </p>
+    <p>
+        To create an image map you need an image, and some HTML code that describes the clickable areas.
+    </p>
+    <hr>
+    <!-- #endregion -->
+
+    <!-- #region Setting an Image-->
+    <h1>Setting An Image</h1>
+    <p>attribute usemap : The usemap value starts with a hash tag # followed by the name of the image map, and is used to create a relationship between the image and the image map. </p>
+
+    <img src="/HTML_Theory/W3School/1_HTML_Basics/Images/Laptop_Phone_Coffee.jpg" alt="Workplace" usemap="#workmap1">
+
+    <!-- #endregion -->
+
+    <!-- #region Create Image Map-->
+     <hr>
+    <h1>Create Image Map</h1>
+    <p>The <map> element is used to create an image map, and is linked to the image by using the required name attribute</p>
+    <p>The name attribute must have the same value as the <img>'s usemap attribute .</p>
+
+    <map name="workmap1" >
+
+    <!-- #endregion -->
+
+    <!-- #region The Areas-->
+    <hr>
+    <h1>The Areas/Shapes</h1>
+    <p>A clickable area is defined using an (area) element.</p>
+
+    <pre>
+        rect - defines a rectangular region
+        circle - defines a circular region
+        poly - defines a polygonal region
+        default - defines the entire region
+    </pre>
+    <p>You must also define some coordinates to be able to place the clickable area onto the image. </p>
+    <img src="/HTML_Theory/W3School/1_HTML_Basics/Images/Laptop_Phone_Coffee.jpg" alt="Workplace" usemap="#workmap">
+    <map name="workmap">
+        <area shape="rect" coords="34,44,270,350" alt="Computer" href="./Images/Map_Laptop.jpg">
+        <area shape="rect" coords="290,172,333,250" alt="Phone" href="./Images/Map_Phone.jpg">
+        <area shape="circle" coords="337,300,44" alt="Coffee" href="./Images/Map_Coffee.jpg">
+      </map>
+    <!-- #endregion -->
+
+    <!-- #region Shape = "poly"-->
+    <hr>
+    <h2>Shape = "Poly" </h2>
+    <p>Click on the croissant to go to a new page and read more about the topic:</p>
+    
+    <img src="./Images/frenchfood.jpg" alt="French Food" usemap="#foodmap" width="450" height="675">
+    
+    <map name="foodmap">
+      <area shape="poly" coords="140,121,181,116,204,160,204,222,191,270,140,329,85,355,58,352,37,322,40,259,103,161,128,147" alt="Croissant" href="./Images/map_croissant.jpg">
+    </map>
+
+   <!-- #endregion -->
+
+   <!-- #region Image Map and JavaScript-->
+    <hr>
+    <h1>Image Map and JavaScript</h1>
+    <img src="./Images/Laptop_Phone_Coffee.jpg" alt="Image" usemap="#jsChecking">
+    <map name="jsChecking">
+        <area shape="circle" coords="337,300,44" href="./Images/Map_Coffee.jpg" alt="Cofee" onclick="myFunction()">
+    </map>
+    <script>
+        function myFunction(){
+            alert("You clicked the coffee cup!")
+        }
+    </script>
+    <!-- #endregion -->
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Tables</title>
+    <style>
+        table, th, td{
+            border: 1px solid black; /*Adds Border*/
+            /*border-collapse: collapse;*/ /* Remove Double Border */
+            border-radius: 10px;/*Reduce Inner Border Radius -  Round Table border*/
+        }
+        th,td {
+            background-color: #e3e9e9; /*Give background color to Cells- Style Table Border*/
+            border-style: dotted; /*Chnage borded radius as Dottedfor each cell*/
+            text-align: right;/*Align the Data to left side*/
+
+        }
+    </style>
+</head>
+<body>
+    <!-- #region HTML Tables-->
+    <p>HTML tables allow web developers to arrange data into rows and columns.
+    </p>
+    <h1>Define an HTML Table</h1>
+
+    <!--
+    tr - Table Row
+    td - Table Cell / Data
+    th - Table Header
+    caption - Table caption
+    colgroup - Spedified a group of one or more columns in a table for formatting
+    col - Specifies column properties for each column within a <colgroup> element
+    thread - Groups the header content in a table
+    tbody - Groups the body content in a table
+    tfoot - Groups the footer content in a table
+    -->
+    <h1>Horizontal Table</h1>
+    <table style="width: 20%; height: 20%;">
+        <caption>Amit Table Details</caption>
+        <tr> 
+            <th colspan="2">Name</th>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+        </tr>
+        <tr>
+            <td>Amit</td>
+            <td>Gupta</td>
+            <td>Alfreds Futterkiste</td>
+            <td>Maria Anders</td>
+            <td>Germany</td>
+        </tr>
+        <tr>
+            <td>Amit</td>
+            <td>Gupta</td>
+            <td>Centro comercial Moctezuma</td>
+            <td>Francisco Chang</td>
+            <td>Mexico</td>
+          </tr>
+    </table>
+    
+    <hr>
+    <h1>Verical Table</h1>
+    <table>
+        <tr>
+          <th>Firstname</th>
+          <td>Jill</td>
+          <td>Eve</td>
+        </tr>
+        <tr>
+          <th>Lastname</th>
+          <td>Smith</td>
+          <td>Jackson</td>
+        </tr>
+        <tr>
+          <th>Age</th>
+          <td>94</td>
+          <td>50</td>
+        </tr>
+      </table>    
+
+    <!-- #endregion -->
+</body>
+</html>

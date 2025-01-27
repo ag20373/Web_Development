@@ -1,0 +1,123 @@
+Q : HTML Introduction 
+
+-> Hyper Text MarkUp Language
+-> standard Mark up language for creating  web pages.
+-> Describes the structure of web pages
+-> Consists of series of elements
+-> elements tell the browser how to display the content
+-> HTML is a case insensitive .
+Exmple : 1_HTML_TUTORIAL/HTML_Theory/W3School/1_HTML_Basics/1_SimpleHTMLPage
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q : Explain HTML Basic Program
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My First Program</title>
+</head>
+<body>
+    <h1>My First Heading</h1>
+    <p>My first paragraph.</p>
+</body>
+</html>
+
+* The <!DOCTYPE html> declaration defines that this document is an HTML5 document
+* The <html> element is the root element of an HTML page
+* The <head> element contains meta information about the HTML page
+* The <title> element specifies a title for the HTML page (which is shown in the browser's title bar or in the page's tab)
+* The <body> element defines the document's body, and is a container for all the visible contents, such as headings, paragraphs, images, hyperlinks, tables, lists, etc.
+* The <h1> element defines a large heading
+* The <p> element defines a paragraph
+
+Example : 1_HTML_TUTORIAL/HTML_Theory/W3School/1_HTML_Basics/2_HTMLBasicTags
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q : What  is HTML Elements?
+
+An HTML element is defined by a start tag, some content, and an end tag:
+
+<tagname> Content goes here... </tagname>
+The HTML element is everything from the start tag to the end tag:
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+Start tag	Element content	    End tag
+<h1>	    My First Heading	</h1>
+<p>	        My first paragraph.	</p>
+<br>	    none	            none
+
+Note :  Some HTML elements have no content (like the <br> element).These elements are called empty elements.Empty elements do not have an end tag.
+
+Example : 1_HTML_TUTORIAL/HTML_Theory/W3School/1_HTML_Basics/3_HTML_Elements
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q : Web Browsers 
+
+-> The purpose of a web browser (Chrome, Edge, Firefox, Safari) is to read HTML documents and display them correctly.
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q: Types of Elements?
+-> Closing Elements : Tags have content - <h1> Content </h1>
+-> Empty Elements : Tags dont have content - <br> (line break) 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q: HTML Attributes?
+
+-> All HTML elements can have Attributes.
+-> Attributes provide additional information abount elements.
+-> Attributes are always specified in the start tag.
+-> Attributes usually come in name/value pairs like : name= "value"
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q: Most Common Attributes?
+
+-> All HTML elements can have attributes
+-> The href attribute of <a> specifies the URL of the page the link goes to
+-> The src attribute of <img> specifies the path to the image to be displayed
+-> The width and height attributes of <img> provide size information for images
+-> The alt attribute of <img> provides an alternate text for an image
+-> The style attribute is used to add styles to an element, such as color, font, size, and more
+-> The lang attribute of the <html> tag declares the language of the Web page
+-> The title attribute defines some extra information about an element
+
+1_HTML_TUTORIAL/HTML_Theory/W3School/1_HTML_Basics
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q : Why Heading are Important ?
+-> Search engines use the headings to index the structure and content of you web pages.
+-> Users often skim a page by its headings. It is important to use heading to show the document structure.
+-> Use HTML headings for headings only. dont use headings to make text BIG or BOLD
+Example : 1_HTML_TUTORIAL/HTML_Theory/W3School/1_HTML_Basics/5_HTML_Headings:
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q: Differene in Pre and p
+-> p is paragraph tag , while pre is preformatted paragram tag
+-> p doesnot include space ,line break etc , while pre works of preformatted text defined.
+Example : 1_HTML_TUTORIAL/HTML_Theory/W3School/1_HTML_Basics/6_HTML_Paragraph:
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Q: What is Absolute URLs vs. Relative URLs
+-> Absolute URLs (Link to websie)
+    <h2>Absolute URLs</h2>
+    <p><a href="https://www.w3.org/">W3C</a></p>
+    <p><a href="https://www.google.com/">Google</a></p>
+-> Relative URLs (Link to Local Page)
+    <h2>Relative URLs</h2>
+    <p><a href="html_images.asp">HTML Images</a></p>
+    <p><a href="/css/default.asp">CSS Tutorial</a></p>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

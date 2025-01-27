@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Background Image</title>
+</head>
+<body>
+    <!-- #region Background Image On An HTML element-->
+    <h1>Background Image On An HTML element</h1>
+    <p>To add a background image on an HTML element, use the HTML style attribute and the CSS background-image property</p>
+    <p style="background-image: url(./Images/Laptop_Phone_Coffee.jpg);">You can specify background images<br>
+        for any visible HTML element.<br>
+        In this example, the background image<br>
+        is specified for a p element.<br>
+        By default, the background-image<br>
+        will repeat itself in the direction(s)<br>
+        where it is smaller than the element<br>
+        where it is specified. Try resizing the<br>
+        browser window to see how the<br>
+        background image behaves.</p>
+    <!-- #endregion -->
+
+    <!-- #region Background Image on a Page-->
+    <hr>
+    <h1>Background Image on a Page</h1>
+    <p>If you want the entire page to have a background-image,you must specify the background image on the body </p>
+    <!--<style>
+        body {
+          background-image: url('img_girl.jpg');
+        }
+        </style> -->
+    
+    <!-- #endregion -->
+
+    <!-- #region Background Image Repeat-->
+    <hr>
+    <h1>Background Repeat</h1>
+    <p>If the background image is smaller than the element, the image will repeat itself, horizontally and vertically, until it reaches the end of the element</p>
+    <!--<style>
+        body {
+          background-image: url('example_img_girl.jpg');
+        }
+        </style>-->
+    <p>To avoid the background image from repeating itself, set the background-repeat property to no-repeat</p>
+    <p style="background-image: url(./Images/Laptop_Phone_Coffee.jpg);background-repeat: no-repeat;">You can specify background images<br>
+        for any visible HTML element.<br>
+        In this example, the background image<br>
+        is specified for a p element.<br>
+        By default, the background-image<br>
+        will repeat itself in the direction(s)<br>
+        where it is smaller than the element<br>
+        where it is specified. Try resizing the<br>
+        browser window to see how the<br>
+        background image behaves.</p>
+    <!-- #endregion -->
+    
+</body>
+</html>
+
+<!--Properties-->
+<!--
+EXAMPLE 1 : Background Cover
+  background-image: url('img_girl.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+
+Example 2 : Background Stretch
+  background-image: url('img_girl.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+-->

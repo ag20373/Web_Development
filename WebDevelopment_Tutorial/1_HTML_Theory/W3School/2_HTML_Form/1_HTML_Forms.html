@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>HTML Forms</title>
+    <style>
+        table, th, td{
+            border: 1px solid black; /*Adds Border*/
+            border-collapse: collapse; /* Remove Double Border */
+        }
+        th,td {
+            background-color: #e3e9e9; /*Give background color to Cells- Style Table Border*/
+            text-align: left;/*Align the Data to left side*/
+        }
+    </style>
+</head>
+<body>
+    <!-- #region HTML FORM Theory-->
+    <h1>HTML Forms</h1>
+    <p>An HTML form is used to collect user input. The User is most often send to a server for processing.</p>
+    <hr>
+    <h1>The (form) Element</h1>
+    <p>
+        The HTML (form) element is used to create an HTML form for user input:       
+    </p>
+    <p>The (form) element is a container for different types of input elements, such as: text fields, checkboxes, radio buttons, submit buttons, etc.</p>
+    <form action=""></form>
+    <hr>
+    
+    <h1>The (input) Element</h1>
+    <p>The HTML (input) element is the most used form element.</p>
+    <p>An (input) element can be displayed in many ways, depending on the type attribute.</p>
+    <p>Gere are some Examples : </p>
+    <table>
+        <tr>
+            <th>Type</th>
+            <th>Description</th> 
+        </tr>
+        <tr>
+            <td>input type="text"</td>
+            <td>Displays a single-line text input field</td>
+        </tr>
+        <tr>
+            <td>input type="radio"</td>
+            <td>Displays a radio button (for selecting one of many choices)</td>
+        </tr>
+        <tr>
+            <td>input type="checkbox"</td>
+            <td>Displays a checkbox (for selecting zero or more of many choices)</td>
+        </tr>
+        <tr>
+            <td>input type="submit"</td>
+            <td>Displays a submit button (for submitting the form)</td>
+        </tr>
+        <tr>
+            <td>input type="button"</td>
+            <td>Displays a clickable button</td>
+        </tr>
+    </table>
+    <!-- #endregion -->
+
+    <!-- #region HTML FORM Example-->
+     <hr>
+     <h1>HTML FORM EXAMPLE</h1>
+     <pre>
+        Text Field : Take Keyboard Input
+        User input type = "text"
+     </pre>
+     <pre>
+        Label : usefull for Screen Reader for Users
+        label for="fname"
+        for attribute of label should be equal to id attribute input. 
+     </pre>
+     <form>
+        <label for="fname">First Name : </label> <br>
+        <input type="text" id="fname" name="fname"> <br>
+        <label for="lname">Last name:</label> <br>
+        <input type="text" id="lname" name="lname"> <br>
+        
+        <pre>
+            Radio Button : To Give Option 
+            type = "radio" 
+            id = "css" to match with label
+            name = "fav_language" for all buttons to work as one 
+            value = "CSS" to send to server
+        </pre>
+        <P>Choose your favorite Web language:</P>
+        <input type="radio" id="html" name="fav_language" value="HTML">
+        <label for="html">HTML</label><br>
+        <input type="radio" name="fav_language" id="css" value="CSS">
+        <label for="css">CSS</label><br>
+        <input type="radio" name="fav_language" id="js" value="JS">
+        <label for="js">JS</label>
+
+        <pre>
+            Checkbox : Used for Multiple Options
+        </pre>
+        <input type="checkbox" id="auto1" name="auto1" value="Bike">
+        <label for="auto1">I Have a Bike</label><br>
+        <input type="checkbox" id="auto2" name ="auto2" value="Scooter">
+        <label for="auto2">I Have a Scooter</label>
+
+        <pre>
+            Submit Button : Defines a beutton for subbmitting the form to a form handler(Server Side scrip).
+        </pre>
+        <input type="submit" value="Submit">
+        <input type="button" value="OKIE">
+
+     </form>
+     <!-- #endregion -->
+</body>
+</html>
