@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Outline</title>
+    <style>
+        .CSSOutine{
+            border: 2px solid black;
+            outline:#4CAF50 solid 10px;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .CSSOutlinewidth{
+            border: 2px solid black;
+            outline-style:solid;
+            outline-width: medium;
+            outline-color: red;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .CSSoutlineOffset{
+            border: 2px solid black;
+            outline: red dashed 2px;
+            outline-offset: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>CSS Outline</h1>
+    <p class="CSSOutine">An outline is a line drawn outside the element's border.</p>
+    <p class="CSSOutine">This element has a black border and a green outline with a width of 10px.</p>
+
+    <h1>CSS Outline Width</h1>
+    <p class="CSSOutlinewidth">1px thin , 3px medium , 5px thick ,specific size (in px ,pt, cm,em)</p>
+
+    <h1>CSS Outline Offset</h1>
+    <p class="CSSoutlineOffset">The outline-offset property adds space between an outline and the edge/border of an element. The space between an element and its outline is transparent.</p>
+</body>
+</html>

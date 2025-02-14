@@ -42,5 +42,10 @@
         5. inherit - The height/width will be inherited from its parent value
 
 7. CSS text properties :
-    a. text-align: value; // Allignment of text in screen
-    b. text-transform :value;//samll letters, large letter,starting letter small etc.
+        a. text-align: value; // Allignment of text in screen
+        b. text-transform :value;//samll letters, large letter,starting letter small etc.
+
+8. CSS OutLine : 
+        a. outline: 1px solid red; // Sets a Outline outside emelent border
+        b. outline-offset:Value;// Set a space between a Border and Outline
+        
