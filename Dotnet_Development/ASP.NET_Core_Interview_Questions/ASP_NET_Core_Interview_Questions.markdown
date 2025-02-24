@@ -152,7 +152,7 @@ How Does Kestrel Work :
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-## Q2 : What is the difference between IIS and Kestrel ?Why Do we need these two webservers (8)
+## Q2 : What is the difference between IIS and Kestrel ?Why Do we need these two webservers (8)   
 
 Ans : The main difference between IIS and Kestrel is that Kestrel is a cross - platform server. It runs on Windows , Linux and Mac , where as IIS only runs on windows.
 
@@ -385,4 +385,325 @@ Ans : Following
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-# das
+# HTTP ,RequestHeader and Responce Headers
+
+## Q1 : What is a HTTP? (15)
+
+Ans :
+-> HTTP stands for HyperText Transfer Protocol.
+-> HTTP is a protocol that is used to transfer the hypertext from the client end to the server.
+-> It is the foundation of communication on the internet and is used to trnasfer data between a web browser(like Chrome or Edge) and a Web Server Where Website are stored.
+
+- How Does HTTP Works ?
+  -> Imagine you want to visit a website like www.google.com
+
+1. You type the URL (like "www.google.com") in your browser.
+2. Your browser sends a request to Google's web server asking for the page.
+3. The server processes your request and sends back the webpage (HTML, images, videos, etc.).
+4. Your browser receives the data and displays the website on your screen.
+
+- Key Features of HTTP :
+
+1. It is Request-Responce protocol
+   Your browser Requests data (request), and the server responds with the requested data(response).
+
+2. It is stateless :
+   Every Request is independent . The Server doesn't remember previous request unless cookies or sessions are used.
+
+3. Uses TCP/IP for Communication :  
+   It works over the internet using Transmission Control Protocol (TCP) and Internet Protocol (IP).
+
+4. It works on port 80 (for HTTP)and 443(for HTTPS)
+   HTTPS(HyperText Transfer PRotocol Secure) is a more secure version of HTTP with encryption.
+
+- What is HTTPS?
+  -> HTTPS (HyperText Transfer Protocol Secure) is a more secure version of HTTP.
+  -> It encrypts the data using SSL/TLS, making it harder for hackers to steal information.
+  -> Websites with HTTPS have a padlock icon in the browser.
+
+## Q2 : WWhat is the format of a Request Message and Responce Message? (16)
+
+Ans : Format of an HTTP Request and Response Message
+When your browser talks to a Web server using HTTP ,It follows a specific format for sending requests and recieveing responses. Let's Break it down.
+
+- HTTP Request Message(Send by Your browser)
+  Whenever you visit a website, your browser sends an HTTP request to ask for a web page. The request message has three main parts:
+
+- Structure of an HTTP Request:
+  REQUEST LINE
+  HEADERS
+  BODY(Optional)
+
+- Example Request Message:
+
+  $$
+  GET/index.html HTTP/1.1
+  Host : www.example.com
+  User-Agent : Chrome/120.0
+  Accept : text/html
+  $$
+
+- Breakdown of Request Parts :
+
+  1. Request Line
+     -> The First line in the request.
+     -> It contains three things :
+     HTTP Method : What action to perform(e.g. GET ,POST ,PUT, DELETE)
+     Path : Which resources to access (e.g. /index.html)
+     HTTP Version : Version of HTTP Used (e.g. HTTP/1.1)
+     **Exmaple : GET / index.html HTTP/1.1**
+     "Get the index.html page from the server using HTTP/1.1"
+
+  2. Headers
+     -> Extra informationsend to the server.
+     -> Common headers include :
+
+     > Host : The website address(e.g. www.example.com)
+     > User-Agest : Browser details(e.g. Chrome/120.0)
+     > Accept : What kind of response is expected (e.g. text/html for web pages.)
+
+  3. Body(Optional)
+     -> Used only in some requests Like POSt ,PUT , etc.
+     -> Contains data being send to the server (e.g. form data).
+     -> Not needed in a GET request.
+
+- HTTP Responce Message(Send By the Server)
+  |After receiveing the request, the web server responds with an HTTP resonse message. This also has three main parts :
+
+- Structure of an HTTP Responce :
+  STATUS LINE
+  HEADERS
+  BODY(Optional)
+
+- Example Response Message :
+  HTTP/1.1 200 OK
+  Content-Type : text/html
+  Content-Length : 88
+
+  ```json
+  <html>
+   <head><title>Example</title></head>
+   <body><h1>Welcome to Example.com!</h1></body>
+  </html>
+  ```
+
+- Breakdown of Response Parts :
+
+  1. Status Line
+     -> The First line of the Responce
+     -> It contains three things :
+     HTTP Version (e.g., HTTP/1.1)
+     Status Code (e.g., 200, 404, 500)
+     Status Message (e.g., OK, Not Found, Internal Server Error)
+     -> **Example : HTTP/1.1 200 OK**
+     -> The request was successful (200 OK), and here is the web page.
+
+  2. Headers :
+     -> Extra details about the response.
+     -> Common Responce headers includes :
+        1. Content-Type: Type of content returned (e.g., text/html, application/json).
+        2. Content-Length: Size of the response body.
+        3. Date: The date/time when the response was sent
+     -> Example : Content-Type: text/html
+                  Content-Length: 88
+
+  3. Body (Optional)
+      -> Contains the actual content of the response (e.g., an HTML webpage, JSON data, or an image).
+      -> If you requested a webpage, this will have the HTML code.
+
+- Final Summary :
+  1. Your browser sends an HTTP request ->  It includes a request line,  headers  and sometimes a body.
+  2. The server processes it and sends an HTTP response → It includes a status line, headers, and sometimes a body.
+  3. Your browser receives the response and displays the webpage.
+
+## Q3 : What are the important HTTP methods (or HTTP verbs) – (GET, POST, PUT, PATCH, HEAD, DELETE)? (17)
+Ans : Imagine You are in resturant , and you want to order food. The way you talk to waiter is like how a Web browser talks to a Web Server using HTTP methods (also called HTTP verbs).
+
+Each method tells the server what action you wan to perform on the data .
+
+  1. GET - "I Wan to see the menu"
+    -> What does it does :  Gets(fetches) data from the server.
+    -> Example in real Life : 
+      1. You ask the waiter, "Can I see the menu?"
+      2. The waiter brings you the menu (but doesn’t change anything).
+    -> Example in the internet world:
+      When you visit www.google.com, your browser sends a GET request to fetch the webpage.
+    -> Does it change anything on the server? ❌ No, it just retrieves data.
+    -> Example HTTP GET Request:
+      GET /menu HTTP/1.1
+      Host: restaurant.com
+
+  2. POST - "I Want to place an order"
+    -> What it does :  Sends new data to the srver
+    -> Example in real life:
+        1. You tell the waiter, "I want to order a burger."
+        2. The waiter writes it down and sends it to the kitchen.
+    -> Example in the internet world:
+        When you sign up for an account, your name and email are sent to the server using a POST request.
+    -> Does it change something on the server? ✅ Yes, it adds new data.
+
+  3. PUT - "I want to chnage my order completely"
+    -> What it does : Updates existing data or replaces it with new data,
+    -> Example in eal life : 
+        1. You tell the waiter, "Cancel my burger. Instead , I want a pizza".
+        2. The waiter completely replace you old order with a new one.
+    -> Example in the internet world:
+        If you update your profile information, a PUT request replaces your old details with the new ones.
+    -> Does it chnages something on the server ? Yes , it modifies existing data.
+
+  4. PATCH - "I just want to chnage my drink"
+     -> What it does : Updates only part of the data instead of replacing everythng 
+     -> Example in real life:
+        1. You tell the waiter, "Keep my burger, but change my drink to lemonade."
+        2. The waiter updates only the drink, without changing the whole order.
+     -> Example in the internet world:
+          If you update just your phone number in your profile, a PATCH request only updates that field instead of replacing everything.
+     -> Does it change something on the server? ✅ Yes, but only a small part of the data.
+
+  5. DELETE – "Cancel my order!" ❌
+      -> What it does: Deletes data from the server.
+      -> Example in real life:
+          1. You tell the waiter, "Cancel my order, I don’t want food anymore."
+          2. The waiter removes your order from the system.
+      -> Example in the internet world:
+          If you delete your account on a website, a DELETE request is sent to remove your data.
+      -> Does it change something on the server? ✅ Yes, it removes data.
+  
+
+
+
+## Q4 : What are the important HTTP status codes? (18)
+Ans : Imagine  you are at a toy stores asking for different toys. The store manager (Server) will respond in different ways based on weather they have the toy , if you are allowed to buy it, or if something goes wrong.
+
+These responses are like HTTP status codes - numbers that tell your browser what happened when it asked for a webpages.
+
+- 1xx - Hold On!(Information Codes)
+These codes means "wait , i'm working on it" but they are not very common.
+Example: 100 Continue - "I got your request, kep going!"
+
+- 2xx - Success (Everything Worked!)
+These Codes mean "The request was successful!".
+  i. 200 (OK) - Everything is Fine - You ask for a toy and store got it for you.
+  
+  ii. 201(Created) - New data was created - stores creates a brand new toy just for you
+  
+  iii. 204 (No Content) - Request was successfull, but no data to show - You ask for a toy, and the manager says, "Your order is confirmed, but i dont need to give you anything right now"
+
+- 3xx - Go Somewhere Else (Redirection codes)
+These Codes mean "The thing you want has moved!"
+  i. 301 Moved Permanently - The page is now at a new place forever - You ask for a toy and manager says , "We dont sell it here anymore. Go to our new store"
+  
+  ii. 302 Fount (Temporary Redirect) - The page is at a new location for now -  The toy you want is in the other room, go there instead.
+  
+  iii. 304 Not Modified - USe the stored version of the page - You already have this toy at home! no need to get another one.
+
+- 4xx - You Made a Mistake (Client Error)
+These codes means "You did something wrong!"
+  i. 400 Bod Request - Your request was wrong - You ask for a "flying unicorn robot" that doesnot exisit.
+  
+  ii. 401 Unauthorized - You need to log in First - the manager say "You cannot buy this toy until you show us membership card" 
+
+  iii. 403 Forbidden -  You are not allowed to see this page - "Sorry , this toy is only for VIP  customers."
+
+  iv. 404 Not Found - The Page or item don't Exist - We dont have that toy in store.
+
+  v. 405 Method Not Allowed - The Request method is not Allowed -  You can look at the toy , but cant buy it.
+
+- 5xx - The Store Broke down 
+These Code means "Server messed up"
+  i. 500 Internal Server Error - The Server has a problem -  The toy store's cash register stopped working!
+
+  ii. 502 Bad Gateway - The server got a bad response from another server - The store manager went to ask another store for a toy, but they gave the wrong answer.
+
+  iii. 503 Service Unavailable - The server is too busy or down - The store is closed right now, come back later!
+  
+## Q5 : What is Content Negotiation in HTTP? ?(19)
+Ans : Alright! Imagine you go to an ice cream shop and ask for a chocolate ice cream. But the shop has different types of chocolate icecream - Dark chocloate , milk chocolate , and white chocolate.
+
+Now, Instead of icking one yourself , you tell the shopkeeper : 
+"I Like Darkchocolate the most , but if you dont have it , i'll take milk chocolate. and if that not available, white chocolate is fine too."
+
+The shopkeeper looks at what they have and gives you the best match based on your preference.
+
+- How is this like HTTP Negotiation ?
+When your web bowser (like Chrome or Edge) asks a website for a page, it doesnt just say, "Give me the page". It also says:
+
+-> "I prefer thsi format(HTML , JSON ,XML etc.)"
+-> "I understand this language(English ,Hindi ,French ,etc.)"
+-> "I can handle these types of files(images, videos ,etc)"
+
+The website checks what it can provide and responds with the best match.
+For Example : 
+1. If yourbrowser prefers English , the website  sends the page in English.
+2. If your browser requests JSON data instead of HTML, the server sends JSON.
+
+## Q6 : How HTTP Protocol Works? (20)
+Ans : Alrigth! Imagine you are sending a letter to your friend. You write the letter, put it in an envelope, and send it through the post office. You friend gets the letter, read it, and may be sends a reply.
+
+Now, let's see how this relates to HTTP : 
+HTTP (HyperText Transfer Potocol) is like a mailing system but for the internet. It allows computers (like your browser and a web server) to talk to each other and exchnage information.
+
+- Step - By - Step
+1. You (client) Make a request
+    -> When you type www.google.com in your browser, your browser sends a request to Google's server.
+    -> This request says, "Hey , I want the homepage of Google!"
+
+2. Server Recieves the Request
+    -> Google's server recieves the request and checks what you asked for.
+    
+3. Server Sends a Response 
+    -> If Google has the Page, It sends back the Webpage(HTML, images, etc)
+    -> If the page is not found, it sends an error message (like 404 Not Found).
+
+4. You See the Result
+    Your browser receives the response and displays the page on your screen.
+
+## Q7 : What is a web server ? (21)
+Ans : The term Webserver can refer to both hardware and software , working separately or together.
+
+On the hardware side, a web server is a computer with more processing power and memory that stores  the application's back-end code and static assets such as images and Javascript, CSS, HTML files. This computer is connected to the internet and allows data flow between conncted devices.
+
+On the software side, a web server is a program that accepts HTTP requests from the clients, such as a web browser, processes the request, and returns a response. The response can be static, i.e. image/text, or dynamic, i.e. calculated total of the shopping cart.
+
+Popular examples of web servers include Apache, Nginx, and IIS.
+
+# Middlewares
+## Q1 : What is a Middleware ?(22)
+Ans : It is the code that is injected into the application pipeline to handle requests and repsnses.
+-> They are just like  chained to each other and form a pipeline. 
+-> The incomig requets are passed through this pipeline where all middleware is configured, and middleware can perform some action on  the rewuest before passing it to the next middleware.
+-> Same as for the responses, they are also passing through the middleware but in reverse order.
+
+- The Main responsibilities of a middleware:
+1. Generate an HTTP Response for an incoming HTTP request 
+2. Intercept and make changes to an incoming HTTP request and pass it on to the next piece of middleware.
+3. Intercept and make changes to an outgoing HTTP response, and pass it on to the next piece of middleware.
+
+## Q2 : Whats is difference between IApplicationBuilder.Use() And IApplicationBuilder.Run()?(23)
+Ans : We can use both methods while defining a application request pipeline. 
+-> Both are used to add middleware delegates to the application request pipeline.
+-> The middleware that is added using IApplicationBuilder.Use() may call the next middleware in the pipeline where as the middleware that is added using the IApplicationBuilder.Run() method never calls the subsequesnt middleware. aFter IApplicationBuilder.Run method, system stop adding middleware in the reequest pipeline. 
+-> The IApplicationBuilder.Run() adds a terminating middleware; so no other middleware will run after the middleware added with Run().
+
+## Q3 : What is the use of the "Map" extension while adding middleware to the ASP.NET Core pipeline?(24)
+Ans : It is used for branching the pipeline. It branches the ASP.NET Core pipeline based on request path matching. If the request path starts with the given path , middleware on to that branch will execute.
+
+## Q4 : How do you create a custom middleware?(25)
+Ans : The custom middleware class can be used to separate the middleware code from the Program.cs(or Startup.cs in earlier versions).
+We can create a Cusotm Middelware using "IMiddleware"
+
+## Q5:  What is the right order of middleware used in production-level applications?(26)
+Ans : You can see how, in a typical app, exisitng middlewares are ordered and where cutom middlewares are added. You have full control over how to reorder exisiting middlewares or inject new custom middlewares as necessary for your scenarions.
+
+1. EXceptional Handling
+2. HSTS
+3. HttpsRedirection
+4. Static files
+5. Routing
+6. CORS 
+7. Authenticaton
+8. Authorization 
+9. Custom1 .... Custom N
+10. EndPoint
+
+# sdas
