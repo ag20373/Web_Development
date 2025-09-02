@@ -1,5 +1,0 @@
-1. #id	                #firstname	Selects the element with id="firstname"
-2. .class	            .intro	    Selects all elements with class="intro"
-3. *	                *	        Selects all elements
-4. element	            p	        Selects all <p> elements
-5. element,element,..	div, p	    Selects all <div> elements and all <p> elements
